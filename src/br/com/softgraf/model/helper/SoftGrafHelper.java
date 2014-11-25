@@ -2,6 +2,9 @@ package br.com.softgraf.model.helper;
 import br.com.softgraf.model.command.AcessarUsuario;
 import br.com.softgraf.model.command.CadastrarProduto;
 import br.com.softgraf.model.command.CadastrarUnidade;
+import br.com.softgraf.model.command.ConsultarFornecedor;
+import br.com.softgraf.model.command.ConsultarProduto;
+import br.com.softgraf.model.command.ConsultarUnidade;
 import br.com.softgraf.model.command.InicializaFornecedor;
 import br.com.softgraf.model.command.InicializaUnidade;
 import br.com.softgraf.model.command.InterfaceCommand;
@@ -43,17 +46,21 @@ public class SoftGrafHelper {
         {        
             return new InicializaFornecedor();
             
-        }
-        else if (cmd.equals("cadastrarUnidade")){
+        }else if (cmd.equals("cadastrarUnidade")){
         	return new CadastrarUnidade();
         	//return new InicializaFornecedor();
         	
         }else if (cmd.equals("cadastrarProduto")){
         	return new CadastrarProduto();
         	
-        }        		
-        else if(cmd.equals("acessarUsuario")) 
-        {        	
+        }else if (cmd.equals("consultarFornecedor")){
+        	return new ConsultarFornecedor();
+        }else if (cmd.equals("consultarUnidade")){
+        	return new ConsultarUnidade();
+        }else if (cmd.equals("consultarProduto")){
+        	return new ConsultarProduto();
+        }      
+        else if(cmd.equals("acessarUsuario")){        	
             return new AcessarUsuario();
         }else if(cmd.equals("cadastrarFornecedor"))
         	
