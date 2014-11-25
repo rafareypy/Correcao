@@ -34,7 +34,7 @@ public class CadastrarUnidade implements InterfaceCommand {
         
     	Unidade unidade = new Unidade();
     	//br.com.softgraf.model.bean.Unidade unidade = new Unidade();
-    	System.out.println("inicializamos ");
+    	
     	
     	try {
     		BeanUtils.populate(unidade, request.getParameterMap());

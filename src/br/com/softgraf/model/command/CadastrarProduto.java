@@ -39,25 +39,19 @@ public class CadastrarProduto implements InterfaceCommand {
         
     	Produto produto = new Produto();
     	
-    	//System.out.println("inicializamos ");
+    	System.out.println("vamos cadastrar o produto ");
     	
     	try {
-			BeanUtils.populate(produto, request.getParameterMap());
-			
-			
+			BeanUtils.populate(produto, request.getParameterMap());					
 			
 			DAO<Unidade> unidadeDAO = new DAOImpl<Unidade>(Unidade.class, (Session) request.getAttribute(HibernateUtil.HIBERNATE_SESSION));
-			
-			
-			List<Unidade> listaUnidade = unidadeDAO.getBeans();
-			
-			System.out.println("Vamos mostrar as unidades");
+						
+			List<Unidade> listaUnidade = unidadeDAO.getBeans();					
 			
 			for (Unidade unidade : listaUnidade) 
 			{
 				System.out.println("Unidades"+ unidade.toString());				
-			}
-			
+			}			
 			
 			request.setAttribute("unidades", unidadeDAO.getBeans());
 			
@@ -71,6 +65,23 @@ public class CadastrarProduto implements InterfaceCommand {
 			request.setAttribute("fornecedores", listaFornecedor);
 			
 			java.util.List<Fornecedor> lista = fornecedorDAO.getBeans();
+			
+			
+			
+			System.out.println("Valores " + produto.toString());
+			
+			if(produto.isValid() == true)
+			{
+												
+				produto.setVlrcompra(Double.parseDouble(request.getParameter("vlrcompra")) );
+
+				produto.setVlrvenda(Double.parseDouble(request.getParameter("vlrvenda")) );
+				
+				DAO<Produto> produtoDAO = new DAOImpl<Produto>(Produto.class, (Session) request.getAttribute(HibernateUtil.HIBERNATE_SESSION));
+				produtoDAO.salvar(produto);
+			}else{
+				request.setAttribute("mensagem", "Preencha os campos obrigat�rios");
+			}
 			
 			
 			

@@ -82,9 +82,8 @@ public class Produto{
 	
 	public Boolean isValid(){
 		boolean result = true;
-		if ("".equals(codigo) || codigo == null ){
-			result = false;
-		}else if ("".equals(descricao)|| descricao== null ){
+		
+		if ("".equals(descricao)|| descricao== null ){
 			result = false;
 		}else if ("".equals(unidade_codigo)|| unidade_codigo== null ){
 			result = false;
@@ -94,9 +93,10 @@ public class Produto{
 		}
 		return result;
 	}
+	
 	public String toString()
 	{
-			return "Codigo = "+codigo + "Codigo unidade = "+unidade_codigo + "Codigo Fornecedor = "+fornecedor_codigo;
+			return " VAlores do Produto \n Descricao = "+descricao + " - Codigo unidade = "+unidade_codigo + " - Codigo Fornecedor = "+fornecedor_codigo;
 			
 	}
 		

@@ -59,15 +59,6 @@ public class DAOImpl<T> implements DAO<T> {
 		
 		List<T> beansT = (List<T>)session.createCriteria(classe).list();
 		
-		List<Unidade> beans= (List<Unidade>)session.createCriteria(Unidade.class).list();
-		
-		
-		System.out.println("Unidades no DAO");
-		
-		for (Unidade unidade : beans) {
-			System.out.println("Unidade = " + unidade.toString() );
-		}
-		System.out.println("Finald eUnidaades no DAO");
 		return beansT;
 		
 	}
